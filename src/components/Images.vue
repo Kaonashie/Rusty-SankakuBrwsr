@@ -20,9 +20,20 @@ async function fetchImages() {
 
         <div class="w-[200px] h-[300px]" v-if="imageFetched" v-for="image in imageObject.cached_images">
             <img v-if="image.has_sample_url" :src="imageSampleApi + '/' + image.post_id"
-                class="w-[100%] h-[100%] object-cover " />
+                class="w-[100%] h-[100%] object-cover san-image" />
             <p v-else>Image has no sample url sadface</p>
             <p>{{ image.post_id }}</p>
         </div>
     </div>
 </template>
+
+<style scoped>
+.san-image {
+    transition: all 0.3s ease;
+}
+
+.san-image:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+</style>
